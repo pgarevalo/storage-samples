@@ -32,30 +32,10 @@ The best method for generating this cost report depends on your organization's
 structure and security requirements. Depending on how you want to view the cost
 report, there are two main options:
 
-| Option           | Scenario          | Advantages        | Disadvantages     |
-| :--------------- | :---------------- | :---------------- | :---------------- |
-| **Option 1:      | Best for          | Centralized       | Requires backup   |
-: Centralized View : scenarios where   : billing data      : administrators to :
-: to a Dedicated   : all backup        : export simplifies : be given access   :
-: Project**        : administrators    : management for    : to a dedicated    :
-:                  : need to access    : the billing       : project, allowing :
-:                  : the cost data in  : administrator.    : them access to    :
-:                  : a centralized     : All backup        : view Billing data :
-:                  : view and filter   : administrators    : for the Billing   :
-:                  : for their own     : can view the same : Account           :
-:                  : projects          : up-to-date data   :                   :
-| **Option 2:      | The most secure   | Ensures strict    | Additional steps  |
-: Isolated Data    : option for        : data isolation    : to be performed   :
-: Sets in Each     : organizations     : and security.     : by billing and    :
-: Project**        : with strict data  : Backup            : backup            :
-:                  : separation        : administrators    : administrators    :
-:                  : requirements,     : cannot see other  :                   :
-:                  : where each backup : projects' cost    :                   :
-:                  : administrator     : data, unless      :                   :
-:                  : must **only** see : explicitly given  :                   :
-:                  : cost data for     : access to         :                   :
-:                  : their specific    :                   :                   :
-:                  : project           :                   :                   :
+| Option | Scenario | Advantages | Disadvantages |
+| :---- | :---- | :---- | :---- |
+| **Option 1: Centralized View to a Dedicated Project** | Best for scenarios where all backup administrators need to access the cost data in a centralized view and filter for their own projects | Centralized billing data export simplifies management for the billing administrator. All backup administrators can view the same up-to-date data | Requires backup administrators to be given access to a dedicated project, allowing them access to view Billing data for the Billing Account |
+| **Option 2: Isolated Data Sets in Each Project** | The most secure option for organizations with strict data separation requirements, where each backup administrator must **only** see cost data for their specific project | Ensures strict data isolation and security. Backup administrators cannot see other projects' cost data, unless explicitly given access to | Additional steps to be performed by billing and backup administrators |
 
 ## Detailed steps for each option
 
@@ -272,30 +252,24 @@ cost data for their specific project
 
 The cost report includes the following columns:
 
-| Column                   | Description                                       |
-| :----------------------- | :------------------------------------------------ |
-| `report_date`            | Date for the Billing usage of the resource        |
-| `resource_name`          | Name of the resource as configured on Google      |
-:                          : Cloud console                                     :
-| `resource_type`          | Type of the resource                              |
-| `backup_vault_type`      | Type of Backup Vault protecting the resource      |
-| `resource`               | Short name for the resource                       |
-| `billing_location`       | Location in which the resource is billed          |
+| Column | Description |
+| :---- | :---- |
+| `report_date` | Date for the Billing usage of the resource |
+| `resource_name` | Name of the resource as configured on Google Cloud console |
+| `resource_type` | Type of the resource |
+| `backup_vault_type` | Type of Backup Vault protecting the resource |
+| `resource` | Short name for the resource |
+| `billing_location` | Location in which the resource is billed |
 | `usage_in_pricing_units` | Usage corresponding to the backup of the resource |
-| `usage_pricing_unit`     | Unit for determining the usage                    |
-| `cost`                   | Resource cost inclusive of any negotiated         |
-:                          : discounts                                         :
-| `currency`               | Currency Unit                                     |
-| `credits`                | Sum of all credits of all types applicable for    |
-:                          : the resource.                                     :
-| `net_cost`               | The final cost after all credits are applied      |
-:                          : (cost + credits).                                 :
-| `sku_description`        | sku.description from billing data                 |
-| `sku_id`                 | sku.id from billing data                          |
-| `backup_vault_name`      | Name of backup vault protecting the resource      |
-| `resource_location`      | Regional location of the resource                 |
-| `backup_plan_name`       | Name of the Backup plan associated to the         |
-:                          : resource                                          :
-| `backup_vault_location`  | Location of the Backup vault associated to the    |
-:                          : resource                                          :
-| `source_project`         | Workload project associated to the resource       |
+| `usage_pricing_unit` | Unit for determining the usage |
+| `cost` | Resource cost inclusive of any negotiated discounts |
+| `currency` | Currency Unit |
+| `credits` | Sum of all credits of all types applicable for the resource. |
+| `net_cost` | The final cost after all credits are applied (cost + credits). |
+| `sku_description` | sku.description from billing data |
+| `sku_id` | sku.id from billing data |
+| `backup_vault_name` | Name of backup vault protecting the resource |
+| `resource_location` | Regional location of the resource |
+| `backup_plan_name` | Name of the Backup plan associated to the resource |
+| `backup_vault_location` | Location of the Backup vault associated to the resource |
+| `source_project` | Workload project associated to the resource |
