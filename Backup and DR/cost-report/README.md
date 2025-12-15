@@ -80,7 +80,7 @@ dataset and transfer job will be created in your specified target project.
         essential information. Create a file named `config.json` in the same
         directory, replacing the placeholder values with your specific details:
 
-        *   `central_report_project_id`: The Project ID where the consolidated
+        *   `target_project_id`: The Project ID where the consolidated
             cost reports should be generated.
         *   `dataset`: The BigQuery dataset name containing your billing export
             data (e.g., `BackupDr_Billing_Data` from Step 1).
@@ -94,7 +94,7 @@ dataset and transfer job will be created in your specified target project.
 
         ```json
         {
-          "central_report_project_id": "my-central-reporting-project",
+          "target_project_id": "my-central-reporting-project",
           "dataset": "BackupDr_Billing_Data",
           "account_id": "111111-111111-111111",
           "vault_projects": [ "bdr-project-a", "bdr-project-b" ],
