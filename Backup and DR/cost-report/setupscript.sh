@@ -456,7 +456,7 @@ EOF
                   fi
               fi
           done
-          wait_for "all DTS configs named '${DTS_DISPLAY_NAME}' to be deleted" 120 10 "! bq ls --transfer_config --project_id='${current_target_project_id}' --transfer_location='${TARGET_LOCATION}' --format=json 2>/dev/null | jq -e --arg DN '${DTS_DISPLAY_NAME}' 'any(.[]; .displayName == \$DN)' > /dev/null"
+          wait_for "all DTS configs named '${DTS_DISPLAY_NAME}' to be deleted" 120 10 "bq ls --transfer_config --project_id='${current_target_project_id}' --transfer_location='${TARGET_LOCATION}' --format=json 2>/dev/null | jq -e --arg DN '${DTS_DISPLAY_NAME}' '(map(select(.displayName == \$DN)) | length) == 0' > /dev/null"
       fi
   fi
 
