@@ -123,10 +123,11 @@ setup_service_account() {
   wait_for "iam.serviceAccountUser role propagation for ${user_email} on SA ${service_account_email}" 300 10 "gcloud iam service-accounts get-iam-policy '${service_account_email}' --flatten='bindings' --filter='bindings.role=roles/iam.serviceAccountUser AND bindings.members:user:${user_email}' --format='value(bindings.role)' | grep -q 'roles/iam.serviceAccountUser'"
 
   echo "Granting SA roles/bigquery.jobUser in TARGET project ${current_target_project_id} (needed to run jobs)..."
-  gcloud projects add-iam-policy-binding "${current_target_project_id}" \
-    --member="serviceAccount:${service_account_email}" \
-    --role="roles/bigquery.jobUser" \
-    --condition=None --quiet
+  wait_for "Grant roles/bigquery.jobUser to SA ${service_account_email} on project" 300 15 \
+      "gcloud projects add-iam-policy-binding '${current_target_project_id}' \
+      --member='serviceAccount:${service_account_email}' \
+      --role='roles/bigquery.jobUser' \
+      --condition=None --quiet"
   echo "Service Account project-level role grant complete."
   wait_for "bigquery.jobUser role propagation for ${service_account_email} in ${current_target_project_id}" 300 10 "gcloud projects get-iam-policy '${current_target_project_id}' --flatten='bindings' --filter='bindings.role=roles/bigquery.jobUser AND bindings.members:serviceAccount:${service_account_email}' --format='value(bindings.role)' | grep -q 'roles/bigquery.jobUser'"
   echo ""
