@@ -1,0 +1,5 @@
+functions-framework==3.*
+google
+google-api-python-client
+google-cloud-netapp
+google.auth
