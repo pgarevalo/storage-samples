@@ -31,8 +31,8 @@ cd "storage-samples/NetApp Volumes/Autogrow"
 
 Get the relevant information about your project.
 ```bash
-PROJECT_ID="pgarevalo-prod"
-REGION="europe-southwest1"
+PROJECT_ID="xxxxxxxxxxxx"
+REGION="xxxxxxxxxxxxxxxx"
 PROJECT_NUMBER=$(gcloud projects describe $PROJECT_ID --format="value(project_number)")
 ```
 Create a service account with NetApp Volumes permissions to run the function.
