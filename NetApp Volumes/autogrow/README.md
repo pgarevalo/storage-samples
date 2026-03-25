@@ -25,7 +25,7 @@ Clone the script repository from GitHub and navigate to the project directory:
 
 ```bash
 git clone https://github.com/GoogleCloudPlatform/storage-samples.git
-cd "storage-samples/NetApp Volumes/Autogrow"
+cd "storage-samples/NetApp Volumes/autogrow"
 ```
 ### 1. Required roles
 
