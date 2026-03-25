@@ -29,7 +29,7 @@ cd "storage-samples/NetApp Volumes/autogrow"
 ```
 ### 1. Required roles
 
-Get the relevant information about your project.
+Add and get the relevant information about your project.
 ```bash
 PROJECT_ID="xxxxxxxxxxxx"
 REGION="xxxxxxxxxxxxxxxx"
